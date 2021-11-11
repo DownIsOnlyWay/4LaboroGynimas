@@ -29,22 +29,6 @@ public class InternetasImpl extends MoketojasImpl implements Internetas {
         return super.getKodas();
     }
 
-    @Override
-    public String getVardas() {
-        return super.getVardas();
-    }
-
-    @Override
-    public String getPavarde() {
-        return super.getPavarde();
-    }
-
-    @Override
-    public double vienaSask(double suma, int kodas) {
-        if (kodas == this.getKodas())
-            return suma;
-        return 0;
-    }
 
     @Override
     public String toString() {

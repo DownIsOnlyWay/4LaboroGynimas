@@ -44,18 +44,24 @@ public class Main {
         mo[10] = sildymas2;
         mo[11] = sildymas3;
 
-//        double vienaSask1 = telefonas1.getSuma() + internetas1.getSuma();
-//        double vienaSask2 = telefonas2.getSuma() + internetas2.getSuma();
-//        double vienaSask3 = telefonas3.getSuma() + internetas3.getSuma();
 
 
+        int kodas;
+        double suma = 0;
         System.out.println("Sarasas ");
-        for (MoketojasImpl moketojas : mo) {
-            if (moketojas instanceof TelefonasImpl || moketojas instanceof InternetasImpl)
-                System.out.println(moketojas.getKodas() + "  " + moketojas.vienaSask(moketojas.getSuma(), moketojas.getKodas()));
+        for (MoketojasImpl mok1 : mo) {
+            if (mok1 instanceof TelefonasImpl ) {
+                kodas = mok1.getKodas();
+                suma = mok1.getSuma();
+                for (MoketojasImpl mok2 : mo) {
+                    if ( mok2 instanceof InternetasImpl) {
+                        if (kodas == mok2.getKodas())
+                            suma += mok2.getSuma();
+                    }
+                }
+                System.out.println("Moketojo kodas: "+ mok1.getKodas() + " suma: " + suma);
+            }
         }
-
-
     }
 
 }
